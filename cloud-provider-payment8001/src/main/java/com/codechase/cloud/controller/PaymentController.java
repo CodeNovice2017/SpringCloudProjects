@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codechase.cloud.entities.CommonResult;
@@ -26,7 +27,7 @@ public class PaymentController {
 
     @PostMapping(value = "/payment/create")
     // 我们后端内部的业务逻辑,都是直接使用Payment等实体类直接用,最后Controller给前端返回的一定是通用的Result
-    public CommonResult create(Payment payment){
+    public CommonResult create(@RequestBody Payment payment){
         int result = paymentService.create(payment);
         log.info("*****插入结果: " + result);
 
