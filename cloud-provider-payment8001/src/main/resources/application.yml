@@ -15,3 +15,12 @@ mybatis:
   # 指定将会在resource下的mapper文件夹下创建xxx.xml的映射文件
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.codechase.cloud.entities
+
+eureka:
+  client:
+    #表示是否将自己注册进Eurekaserver默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
